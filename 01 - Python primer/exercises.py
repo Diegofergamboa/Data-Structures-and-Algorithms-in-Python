@@ -19,9 +19,9 @@ def multiple(n, m):
 
 # Write a short Python function, is even(k), that takes an integer value and returns True if k is even, and False otherwise. However, your function cannot use the multiplication, modulo, or division operators.
 
-def even(k):
+def even_binary(k):
     """
-        Check if an integer is even or not
+        Check if an integer is even or not - BINARY SOLUTION
         
         Args:
         k: int to evaluate
@@ -33,3 +33,23 @@ def even(k):
         return (k & 1) == 0
     else:
         return print('Just use integers in the even function')
+    
+    
+def even_recursive(k):
+    """
+        Check if an integer is even or not - RECURSIVE SOLUTION
+        
+        Args:
+        k: int to evaluate
+        
+        Returns:
+        bool: True if k is even and, False otherwise
+    """
+    if (k == 0):
+        return True
+    elif (k == 1):
+        return False
+    elif(k < 0):
+        return even_recursive(k + 2)
+    else:
+        return even_recursive(k - 2)
