@@ -17,7 +17,7 @@ def multiple(n, m):
         return False
 
 
-# Write a short Python function, is even(k), that takes an integer value and returns True if k is even, and False otherwise. However, your function cannot use the multiplication, modulo, or division operators.
+# R-1.2 Write a short Python function, is even(k), that takes an integer value and returns True if k is even, and False otherwise. However, your function cannot use the multiplication, modulo, or division operators.
 
 def even_binary(k):
     """
@@ -55,7 +55,7 @@ def even_recursive(k):
         return even_recursive(k - 2)
     
     
-# Write a short Python function, is even(k), that takes an integer value and returns True if k is even, and False otherwise. However, your function cannot use the multiplication, modulo, or division operators.
+# R-1.3 Write a short Python function, is even(k), that takes an integer value and returns True if k is even, and False otherwise. However, your function cannot use the multiplication, modulo, or division operators.
 
 def minmax(data):
     """
@@ -71,3 +71,63 @@ def minmax(data):
     data_length = len(data_order)
     ans = (data_order[0], data_order[data_length - 1])
     return ans
+
+# R-1.4 Write a short Python function that takes a positive integer n and returns the sum of the squares of all the positive integers smaller than n.
+
+def sum_of_squares(n):
+    """
+        Sum all the squares of all the positive int before n using a for loop
+        
+        Args:
+        n: int to use as a max range to sum the squares behind it
+        
+        Returns:
+        An int with the final sum
+    """
+    if isinstance(n, int) and n > 0:
+        ans = 0
+        for i in range(0,n):
+            ans += pow(i, 2)
+        return ans
+
+# R-1.5 Give a single command that computes the sum from Exercise R-1.4, rely- ing on Python’s comprehension syntax and the built-in sum function.
+
+def sum_of_squares_c(n):
+    """
+        Sum all the squares of all the positive int before n using a comprehension
+        
+        Args:
+        n: int to use as a max range to sum the squares behind it
+        
+        Returns:
+        An int with the final sum
+    """
+    if (n > 0 and isinstance(n, int)):
+        return sum(i ** 2 for i in range(0, n))
+    else:
+        print('Invalid input')
+        
+        
+# R-1.6 Write a short Python function that takes a positive integer n and returns the sum of the squares of all the odd positive integers smaller than n.
+
+def sum_of_odd_squares(n):
+    """
+        Sum all the squares of all the odds positive int before n
+        
+        Args:
+        n: int to use as a max range to sum the squares behind it
+        
+        Returns:
+        An int with the final sum of all the squares from the odds numbers
+    """
+    ans = 0
+    if n > 0 and isinstance(n, int):
+        for i in range(0, n):
+            if i % 2 != 0:
+                ans += pow(i,2)
+    else:
+        print('Invalid input')
+    return ans
+
+
+# Do using a generator and chaging the range with the range(start, stop, step)
