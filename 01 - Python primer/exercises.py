@@ -53,3 +53,21 @@ def even_recursive(k):
         return even_recursive(k + 2)
     else:
         return even_recursive(k - 2)
+    
+    
+# Write a short Python function, is even(k), that takes an integer value and returns True if k is even, and False otherwise. However, your function cannot use the multiplication, modulo, or division operators.
+
+def minmax(data):
+    """
+        Review the whole data and search the min and max value into the data given without use min and max built.in functions
+        
+        Args: 
+        data: sequence (list, dic, tuple)
+        
+        Returns:
+        tuple: a tuple with the min and the max value.
+    """
+    data_order = sorted(data)
+    data_length = len(data_order)
+    ans = (data_order[0], data_order[data_length - 1])
+    return ans
