@@ -171,7 +171,7 @@ def comprehension_constructor():
     return [2 ** i for i in range(0, 9)]
 
 
-# R-1.10 Python’s random module includes a function choice(data) that returns a random element from a non-empty sequence. The random module in- cludes a more basic function randrange, with parameterization similar to the built-in range function, that return a random choice from the given range. Using only the randrange function, implement your own version of the choice function.
+# R-1.12 Python’s random module includes a function choice(data) that returns a random element from a non-empty sequence. The random module in- cludes a more basic function randrange, with parameterization similar to the built-in range function, that return a random choice from the given range. Using only the randrange function, implement your own version of the choice function.
 import random
 def get_random_range(data):
     if not data:
@@ -180,4 +180,28 @@ def get_random_range(data):
     return data[index]
 
 
+# R-1.13 Write a pseudo-code description of a function that reverses a list of n integers, so that the numbers are listed in the opposite order than they were before, and compare this method to an equivalent Python function for doing the same thing.
 
+# Algorithm: Reverse
+
+# Inputs: 
+# - A list of numbers (list)
+
+# Outputs:
+# - The same list inverted
+
+# Steps:
+# 1. Create an empty list
+# 2. For each element in the list push it into the begin of the new list:
+# 3. Return the new list
+
+# With Python functions.
+def reverse_native(data):
+    if isinstance(data, list):
+        data.reverse()
+        return data
+    else:
+        return None
+
+
+# r-1.14 Write a short Python function that takes a sequence of integer values and determines if there is a distinct pair of numbers in the sequence whose product is odd.
