@@ -129,6 +129,7 @@ def sum_of_odd_squares(n):
         print('Invalid input')
     return ans
 
+# R-1.7 Give a single command that computes the sum from Exercise R-1.6, rely- ing on Python’s comprehension syntax and the built-in sum function.
 
 def sum_of_odd_squares_generator(n):
     """
@@ -145,3 +146,38 @@ def sum_of_odd_squares_generator(n):
     else:
         print('Invalid input')
         
+        
+# R-1.8 Python allows negative integers to be used as indices into a sequence, such as a string. If string s has length n, and expression s[k] is used for in- dex −n ≤ k < 0, what is the equivalent index j ≥ 0 such that s[j] references the same element?
+
+# Answer -> So, if s is a string of length n, and s[k] is used for index -n ≤ k < 0, then the equivalent positive index j would be j = k + n.
+
+
+# R-1.9 What parameters should be sent to the range constructor, to produce a range with values 50, 60, 70, 80?
+
+# Using this syntax for the tange range(start, stop[, step])
+
+def range_constructor(start, end, step):
+    return list(range(start, end, step))
+
+# Answer -> range_constructor(50, 81, 10)
+
+# R-1.10 What parameters should be sent to the range constructor, to produce a range with values 8, 6, 4, 2, 0, −2, −4, −6, −8?
+
+# Answer -> 
+# print(range_constructor(8, -10, -2))
+
+# R-1.11 Demonstrate how to use Python’s list comprehension syntax to produce the list [1, 2, 4, 8, 16, 32, 64, 128, 256].
+def comprehension_constructor():
+    return [2 ** i for i in range(0, 9)]
+
+
+# R-1.10 Python’s random module includes a function choice(data) that returns a random element from a non-empty sequence. The random module in- cludes a more basic function randrange, with parameterization similar to the built-in range function, that return a random choice from the given range. Using only the randrange function, implement your own version of the choice function.
+import random
+def get_random_range(data):
+    if not data:
+        ValueError('get_random_range without param')
+    index = random.randrange(len(data))
+    return data[index]
+
+
+
