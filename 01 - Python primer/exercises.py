@@ -130,4 +130,20 @@ def sum_of_odd_squares(n):
     return ans
 
 
+def sum_of_odd_squares_generator(n):
+    """
+        Sum all the squares of all the odds positive int before n using a generator
+        
+        Args:
+        n: int to use as a max range to sum the squares behind it
+        
+        Returns:
+        An int with the final sum of all the squares from the odds numbers
+    """
+    if n > 0 and isinstance(n, int):
+        return sum(pow(i, 2) for i in range(0, n) if i % 2 != 0)
+    else:
+        print('Invalid input')
+        
+print(sum_of_odd_squares_generator(15))
 # Do using a generator and chaging the range with the range(start, stop, step)
