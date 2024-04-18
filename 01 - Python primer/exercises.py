@@ -145,5 +145,3 @@ def sum_of_odd_squares_generator(n):
     else:
         print('Invalid input')
         
-print(sum_of_odd_squares_generator(15))
-# Do using a generator and chaging the range with the range(start, stop, step)
