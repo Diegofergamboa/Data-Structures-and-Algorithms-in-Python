@@ -197,6 +197,16 @@ def get_random_range(data):
 
 # With Python functions.
 def reverse_native(data):
+    """
+        Function to reverse a list
+        
+        Args:
+        data: List, to reverse
+        
+        Return:
+        List reversed
+    """
+    
     if isinstance(data, list):
         data.reverse()
         return data
