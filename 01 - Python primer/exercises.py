@@ -233,3 +233,24 @@ def products_odd(sequence):
             if product % 2 != 0:
                 pairs_odd_products.append([sequence[i], j])
     return pairs_odd_products
+
+# r-1.15 Write a Python function that takes a sequence of numbers and determines if all the numbers are different from each other (that is, they are distinct)
+
+def compare_n(sequence):
+    """
+    Check if all numbers in the sequence are distinct.
+    
+    Args:
+        sequence: list of numbers
+    
+    Returns:
+        True if all numbers are distinct, False otherwise
+    """
+    for i in range(len(sequence)):
+        for j in range(i+1, len(sequence)):
+            if sequence[i] == sequence[j]:
+                return False
+    return True
+
+
+# r-1.16 Write a Python function that takes a sequence of numbers and determines if all the numbers are different from each other (that is, they are distinct)
