@@ -201,10 +201,10 @@ def reverse_native(data):
         Function to reverse a list
         
         Args:
-        data: List, to reverse
+            data: List, to reverse
         
         Return:
-        List reversed
+            List reversed
     """
     
     if isinstance(data, list):
@@ -215,3 +215,21 @@ def reverse_native(data):
 
 
 # r-1.14 Write a short Python function that takes a sequence of integer values and determines if there is a distinct pair of numbers in the sequence whose product is odd.
+
+def products_odd(sequence):
+    """
+        Based in a sequence, returns the combination or pair of numbers of the sequence where the product is odd
+        
+        Args:
+            sequence: list to check
+            
+        Return:
+            List with the pairs
+    """
+    pairs_odd_products = []
+    for i in range(len(sequence)):
+        for j in sequence[i+1:]:
+            product = sequence[i] * j
+            if product % 2 != 0:
+                pairs_odd_products.append([sequence[i], j])
+    return pairs_odd_products
