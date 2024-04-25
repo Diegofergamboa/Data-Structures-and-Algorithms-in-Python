@@ -276,10 +276,8 @@ alphabet = [chr(ord('a') + i) for i in range(26)]
 
 def shuffle_randint(sequence):
     new_sequence = []
-    indexes = list(range(len(sequence)))  # Generar una lista de índices inicial
-    while indexes:  # Mientras haya índices disponibles
-        random_index = random.randint(0, len(indexes) - 1)  # Seleccionar un índice aleatorio
-        new_sequence.append(sequence[indexes.pop(random_index)])  # Agregar el elemento correspondiente a ese índice a la nueva secuencia
+    indexes = list(range(len(sequence)))
+    while indexes:
+        random_index = random.randint(0, len(indexes) - 1)
+        new_sequence.append(sequence[indexes.pop(random_index)])
     return new_sequence
-
-print(shuffle_randint([1, 'a', 'b', 'c']))
