@@ -253,4 +253,21 @@ def compare_n(sequence):
     return True
 
 
-# r-1.16 Write a Python function that takes a sequence of numbers and determines if all the numbers are different from each other (that is, they are distinct)
+# r-1.16 - r-1.17
+def scale(data, factor):
+    for val in data:
+        val *= factor
+
+def realscale(data, factor):
+    #data*=factor #This will concatenate the array with itself multiple times!  
+    for i in range (len(data)):
+        data[i]*=factor
+        
+        
+# r-1.18 Demonstrate how to use Python’s list comprehension syntax to produce the list [0, 2, 6, 12, 20, 30, 42, 56, 72, 90].
+
+list_to_comprehension = [0, 2, 6, 12, 20, 30, 42, 56, 72, 90]
+comprehension_list = [i * (i + 1) for i in range(0, len(list_to_comprehension))]
+
+# r-1.19 Demonstrate how to use Python’s list comprehension syntax to produce thelist[ a , b , c ,..., z ],butwithouthavingtotypeall26such characters literally.
+alphabet = [chr(ord('a') + i) for i in range(26)]
