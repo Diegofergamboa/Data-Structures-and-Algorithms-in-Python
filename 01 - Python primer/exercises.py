@@ -271,3 +271,15 @@ comprehension_list = [i * (i + 1) for i in range(0, len(list_to_comprehension))]
 
 # r-1.19 Demonstrate how to use Python’s list comprehension syntax to produce thelist[ a , b , c ,..., z ],butwithouthavingtotypeall26such characters literally.
 alphabet = [chr(ord('a') + i) for i in range(26)]
+
+# r-1.20 Python’s random module includes a function shuffle(data) that accepts a list of elements and randomly reorders the elements so that each possi- ble order occurs with equal probability. The random module includes a more basic function randint(a, b) that returns a uniformly random integer from a to b (including both endpoints). Using only the randint function, implement your own version of the shuffle function.
+
+def shuffle_randint(sequence):
+    new_sequence = []
+    indexes = list(range(len(sequence)))  # Generar una lista de índices inicial
+    while indexes:  # Mientras haya índices disponibles
+        random_index = random.randint(0, len(indexes) - 1)  # Seleccionar un índice aleatorio
+        new_sequence.append(sequence[indexes.pop(random_index)])  # Agregar el elemento correspondiente a ese índice a la nueva secuencia
+    return new_sequence
+
+print(shuffle_randint([1, 'a', 'b', 'c']))
