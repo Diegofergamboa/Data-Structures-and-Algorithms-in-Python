@@ -281,3 +281,21 @@ def shuffle_randint(sequence):
         random_index = random.randint(0, len(indexes) - 1)
         new_sequence.append(sequence[indexes.pop(random_index)])
     return new_sequence
+
+# r-1.21 Write a Python program that repeatedly reads lines from standard input until an EOFError is raised, and then outputs those lines in reverse order (a user can indicate end of input by typing ctrl-D).
+
+lines = []
+
+try:
+    while True:
+        line = input()
+        lines.append(line)
+except EOFError:
+    for line in reversed(lines):
+        print(line)
+
+# r-1.22 Write a short Python program that takes two arrays a and b of length n storing int values, and returns the dot product of a and b. That is, it returns an array c of length n such that c[i] = a[i]·b[i], for i = 0,...,n−1.
+
+def doct_constructor(a,b):
+    if isinstance(a, list) and isinstance(b, list):
+        ''
