@@ -284,21 +284,39 @@ def shuffle_randint(sequence):
 
 # r-1.21 Write a Python program that repeatedly reads lines from standard input until an EOFError is raised, and then outputs those lines in reverse order (a user can indicate end of input by typing ctrl-D).
 
-lines = []
+# lines = []
 
-try:
-    while True:
-        line = input()
-        lines.append(line)
-except EOFError:
-    for line in reversed(lines):
-        print(line)
+# try:
+#     while True:
+#         line = input()
+#         lines.append(line)
+# except EOFError:
+#     for line in reversed(lines):
+#         print(line)
 
 # r-1.22 Write a short Python program that takes two arrays a and b of length n storing int values, and returns the dot product of a and b. That is, it returns an array c of length n such that c[i] = a[i]·b[i], for i = 0,...,n−1.
 
-def doct_constructor(a,b):
-    c = []
-    index = 0
-    if isinstance(a, list) and isinstance(b, list):
-        while index <= 0:
-            a[index]
+# def doct_constructor(a,b):
+#     c = []
+#     counter = 0
+#     if isinstance(a, list) and isinstance(b, list):
+#         while counter < len(a):
+#             print(counter)
+#             c.append(a[counter])
+#             c.append(b[counter])
+#             counter += 1 
+#     return c
+# print(doct_constructor([1,2,3], ['a','b','c']))
+
+
+def dot_product(a, b):
+    if len(a) != len(b):
+        raise ValueError("The matrix should have the same length")
+    
+    result = 0
+    for i in range(len(a)):
+        result += a[i] * b[i]
+    
+    return result
+
+print(dot_product([1, 2, 3], [4, 5, 6]))
