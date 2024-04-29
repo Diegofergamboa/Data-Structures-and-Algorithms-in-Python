@@ -319,4 +319,36 @@ def dot_product(a, b):
     
     return result
 
-print(dot_product([1, 2, 3], [4, 5, 6]))
+
+# r-1.23 Give an example of a Python code fragment that attempts to write an element to a list based on an index that may be out of bounds. If that index is out of bounds, the program should catch the exception that results, and print the following error message: “Don’t try buffer overflow attacks in Python!”
+def printerIndex(list, index):
+    try:
+        return (list[index])
+    except IndexError:
+        return ('Don’t try buffer overflow attacks in Python!')
+    
+
+# r-1.24 Write a short Python function that counts the number of vowels in a given character string.
+import re
+
+def countVowels(string):
+    pattern = r'[aeiouAEIOU]'
+    coincidence = re.findall(pattern, string)
+    return len(coincidence)
+
+# r-1.25 Write a short Python function that takes a strings, representing a sentence, and returns a copy of the string with all punctuation removed. For example, if given the string "Let s try, Mike.", this function would return "Lets try Mike".
+
+def deletePunctuation(string):
+    pattern = r'[^\w\s]'
+    cleaned_string = re.sub(pattern, '', string)
+    return cleaned_string
+
+
+# r-1.26 Write a short program that takes as input three integers, a, b, and c, from the console and determines if they can be used in a correct arithmetic formula (in the given order), like “a+b = c,” “a = b−c,” or “a∗b = c.”
+def validate_operations(a, b, c):
+    if a + b == c or b + c == a or a * b == c:
+        return True
+    else:
+        return False
+    
+# r-1.27 
