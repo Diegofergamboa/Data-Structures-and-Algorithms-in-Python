@@ -351,4 +351,54 @@ def validate_operations(a, b, c):
     else:
         return False
     
-# r-1.27 
+# r-1.27 In Section 1.8, we provided three different implementations of a generator that computes factors of a given integer. The third of those implementa- tions, from page 41, was the most efficient, but we noted that it did not yield the factors in increasing order. Modify the generator so that it reports factors in increasing order, while maintaining its general performance ad- vantages.
+
+def factors(n):
+    k=1
+    p = None
+    while k*k  < n:
+        if n % k == 0:
+            if k == p :
+                break
+            yield k
+            p = n // k
+            yield p
+            if k == p :
+                break
+        k+=1
+
+def sorted_factors(n):
+    k=1
+    while k*k  < n:
+        if n % k == 0:
+            yield k
+        k+=1
+    if k*k == n:
+        yield k
+    
+    while k <= n//2:
+        k+=1
+        if n % k == 0:
+            yield k
+    yield n
+    
+# r-1.28 For the special case of p = 2, this results in the traditional Euclidean norm, which represents the length of the vector. For example, the Euclidean norm of a two-dimensional vector with coordinates (4,3) has a Euclidean norm of 42 +32 = 16+9 = 25 = 5. Give an implemen- tation of a function named norm such that norm(v, p) returns the p-norm value of v and norm(v) returns the Euclidean norm of v. You may assume that v is a list of numbers.
+
+import math
+
+def euclidianFunction(list):
+    """
+        Function to calculate the Euclidian of an array of numbers given
+        
+        Args:
+            list: List with the numbers to calculate
+        
+        Return:
+            Int with the final result of the euclidian function 
+    """
+    norm_value = 0
+    for i in list:
+        norm_value += pow(i, 2)
+    return math.sqrt(norm_value)
+    
+print(euclidianFunction([4,3]))
