@@ -400,5 +400,77 @@ def euclidianFunction(list):
     for i in list:
         norm_value += pow(i, 2)
     return math.sqrt(norm_value)
+
+# r-1.29 Write a Python program that outputs all possible strings formed by using thecharacters c , a , t , d , o ,and g exactlyonce.
+
+def generate_strings(characters, current_string=''):
+    if len(characters) == 0:
+        print(current_string)
+    else:
+        for i in range(len(characters)):
+            remaining_characters = characters[:i] + characters[i+1:]
+            generate_strings(remaining_characters, current_string + characters[i])
+            
+            
+# r-1.30 Write a Python program that can take a positive integer greater than 2 as input and write out the number of times one must repeatedly divide this number by 2 before getting a value less than 2.
+def divider_in_two_counter(num):
+    """
+        Function to count the quantity in that a number is minor than 2 dividing it by two
+        
+        Args:
+            num: Int with the number to count on divisions
+        
+        Return:
+            Int that represents the count
+    """
+    if isinstance(num, int) and num >= 2:
+        counter = 0
+        while num >=2:
+            num = num/2
+            counter += 1
+        return counter
+    return counter
+
+
+# r-1.31 Write a Python program that can “make change.” Your program should take two numbers as input, one that is a monetary amount charged and the other that is a monetary amount given. It should then return the number of each kind of bill and coin to give back as change for the difference between the amount given and the amount charged. The values assigned to the bills and coins can be based on the monetary system of any current or former government. Try to design your program so that it returns as few bills and coins as possible.
+def money_changer(money_charged, money_given):
+    """
+    The purpose of this function is to create a money changer
     
-print(euclidianFunction([4,3]))
+    Args:
+        money_charged: Int, amount of money charged
+        money_given: Int, amount of money given
+        
+    Returns:
+        Dictionary, quantity of change to give in Colombian currency denominations
+    """
+    
+    if money_given < money_charged:
+        return {}
+    
+    cop_money = {
+        100000: 0,
+        50000: 0,
+        20000: 0,
+        10000: 0,
+        5000: 0,
+        2000: 0,
+        1000: 0,
+        500: 0,
+        200: 0,
+        100: 0,
+        50: 0
+    }
+    
+    exchange_amount = money_given - money_charged
+    money_to_give = exchange_amount
+    
+    for bill in sorted(cop_money.keys(), reverse=True):
+        while money_to_give >= bill:
+            cop_money[bill] += 1
+            money_to_give -= bill
+            
+    return cop_money
+
+
+# r-1.32 
