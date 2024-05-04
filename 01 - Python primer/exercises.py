@@ -473,4 +473,60 @@ def money_changer(money_charged, money_given):
     return cop_money
 
 
-# r-1.32 
+# r-1.32 Write a Python program that can simulate a simple calculator, using the console as the exclusive input and output device. That is, each input to the calculator, be it a number, like 12.34 or 1034, or an operator, like + or =, can be done on a separate line. After each such input, you should output to the Python console what would be displayed on your calculator.
+def calculator():
+    
+    def operation_validation(operator):
+        """
+            Validate if the operation is allowed or invalid
+            
+            Args:
+                Operator, string
+                
+            Return
+                Boolean
+        """
+        
+        #Object
+        operator_refeer = {
+            '+',
+            '-',
+            '/',
+            '*'
+        }
+        
+        #Engine
+        if operator_refeer[operator_refeer]:
+            return True
+        else:
+            return False
+
+
+    def number_validation(n):
+        """
+            Validate if the the n value is allowed or invalid
+            
+            Args:
+                Operator, int / float
+                
+            Return
+                Boolean
+        """
+        
+        # Engine
+        if isinstance(n, int) or isinstance(n, float):
+            return True
+        else:
+            return False
+
+    while True:
+        input_user = input('Type... ')
+        try:
+            print(number_validation(int(input_user)))
+        except ValueError:
+            try:
+                print(number_validation(float(input_user)))
+            except:    
+                print('Invalid character')
+            
+calculator()
