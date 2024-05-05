@@ -476,57 +476,63 @@ def money_changer(money_charged, money_given):
 # r-1.32 Write a Python program that can simulate a simple calculator, using the console as the exclusive input and output device. That is, each input to the calculator, be it a number, like 12.34 or 1034, or an operator, like + or =, can be done on a separate line. After each such input, you should output to the Python console what would be displayed on your calculator.
 def calculator():
     
+    first_memory_n = 0
+    second_memory_n = 0
+    operation_memory_n = ''
+        
     def operation_validation(operator):
-        """
-            Validate if the operation is allowed or invalid
-            
-            Args:
-                Operator, string
-                
-            Return
-                Boolean
-        """
         
-        #Object
-        operator_refeer = {
-            '+',
-            '-',
-            '/',
-            '*'
-        }
+        operator_refeer = ['+', '-', '/', '*']
         
-        #Engine
-        if operator_refeer[operator_refeer]:
+        if operator in operator_refeer:
             return True
         else:
             return False
 
 
     def number_validation(n):
-        """
-            Validate if the the n value is allowed or invalid
-            
-            Args:
-                Operator, int / float
-                
-            Return
-                Boolean
-        """
         
-        # Engine
         if isinstance(n, int) or isinstance(n, float):
             return True
         else:
             return False
-
-    while True:
-        input_user = input('Type... ')
+        
+    def set_validation(n):
         try:
-            print(number_validation(int(input_user)))
+            return number_validation(int(n))
         except ValueError:
             try:
-                print(number_validation(float(input_user)))
-            except:    
-                print('Invalid character')
-            
+                return number_validation(float(n))
+            except ValueError:
+                print('Invalid number')
+                return False
+    
+    def set_first_number():
+        nonlocal first_memory_n
+        first_num = input('Type your first number: ')
+        if set_validation(first_num):
+            first_memory_n = float(first_num)
+            set_operation()
+    
+    def set_second_number():
+        nonlocal second_memory_n
+        second_num = input('Type your second number: ')
+        if set_validation(second_num):
+            second_memory_n = float(second_num)
+            get_result()
+    
+    def set_operation():
+        nonlocal operation_memory_n
+        input_operation = input('Type an operation... ')
+        if operation_validation(input_operation):
+            operation_memory_n = input_operation
+            set_second_number()
+    
+    
+    def get_result():
+        result = f'{first_memory_n} {operation_memory_n} {second_memory_n}'
+        print(f'Result: {result}')
+
+    set_first_number()
+
 calculator()
