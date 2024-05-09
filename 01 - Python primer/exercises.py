@@ -555,6 +555,33 @@ def text_repeater(sentence, times):
 # text_repeater("I will never spam my friends again.", 100)
 
     
+# r-1.35 The birthday paradox says that the probability that two people in a room will have the same birthday is more than half, provided n, the number of people in the room, is more than 23. This property is not really a paradox, but many people find it surprising. Design a Python program that can test this paradox by a series of experiments on randomly generated birthdays, which test this paradox for n = 5,10,15,20,...,100.
 
+def paradox(n):
+ """
+    Test the birthday paradox by a series of experiments on randomly generated birthdays.
     
+    Args:
+    n (int): the number of people in the room
+    
+    Returns:
+    None
+"""
+def define_coincidences(lst):
+    """
+    Determine the number of coincidences in a list of birthdays.
+    
+    Args:
+    lst (list): a list of birthdays
+    
+    Returns:
+    int: the number of coincidences
+    """
+    coincidences = []
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            if lst[i] == lst[j]:
+                coincidences.append(1)
+    return len(coincidences)
+
     
