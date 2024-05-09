@@ -536,3 +536,25 @@ def calculator():
     set_first_number()
 
 calculator()
+
+# r-1.34 A common punishment for school children is to write out a sentence multiple times. Write a Python stand-alone program that will write out the following sentence one hundred times: “I will never spam my friends again.” Your program should number each of the sentences and it should make eight different random-looking typos.
+def generate_typos(sentence, num_typos):
+    indices = random.sample(range(len(sentence)), num_typos)
+    typos = ['spm', 'frinds', 'sgain', 'friens', 's6ain', 'agn', 'spamm', 'frien']
+    modified_sentence = list(sentence)
+    for idx in indices:
+        typo = random.choice(typos)
+        modified_sentence[idx] = typo
+    return ''.join(modified_sentence)
+
+def text_repeater(sentence, times):
+    for i in range(1, times + 1):
+        modified_sentence = generate_typos(sentence, 8)
+        print(f"{i}: {modified_sentence}")
+
+# text_repeater("I will never spam my friends again.", 100)
+
+    
+
+    
+    
